@@ -66,29 +66,28 @@ function showQuestion() {
 
     }
 
-var userisrightEl = document.getElementById('userisright');
-var useriswrongEl = document.getElementById('useriswrong');
+var userisrightorwrong = document.getElementById('userisrightorwrong');
+
 
 function chosenAnswer(event) {
   var buttonEl = event.target;
 
-  if (!buttonEl.matches(".answersButton")) {
-   return;
-  }
+  //if (!buttonEl.matches(".answersButton")) {
+   //return;
+ // }
   
 
   if (buttonEl.value !== quizQuestions[dislplayedQuestion].correctAnswer) {
 
-    useriswrongEl.textContent = "wrong!";
+    userisrightorwrong.textContent = "wrong!";
+    userisrightorwrong.setAttribute('class', 'useriwrong')
   } else {
-    userisrightEl.textContent = "Correct!";
+    userisrightorwrong.setAttribute('class', 'userisright');
+    userisrightorwrong.textContent = "Correct!"
+
   }
 
-  userisrightEl.setAttribute("class", "userisright");
-  useriswrongEl.setAttribute("class", "useriswrong");
 
-  userisrightEl.setAttribute("class", "userisright hide");
-  useriswrongEl.setAttribute("class", "useriswrong hide");
 
 
   dislplayedQuestion++;

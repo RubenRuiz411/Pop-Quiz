@@ -43,20 +43,11 @@ main {
     display:block;
 }
 
-.feedback {
-    font-style: italic;
-    font-size: 120%;
-    margin-top: 20px;
-    padding-top: 10px;
-    color: gray;
-    border-top: 2px solid #ccc;
-}
-
-#userisright {
+.userisright {
     color: greenyellow;
 }
 
-#useriwrong {
+.useriwrong {
     color: rgb(255, 47, 47);
 }
 
