@@ -1,9 +1,6 @@
 var answersEl = document.getElementById('answers');
 var startButton = document.getElementById('start');
 var questionEl = document.getElementById('actual-question');
-
-
-
 var quizQuestions = [
 {
     question: "In CSS, which property is used to change the background color of an element?",
@@ -31,31 +28,23 @@ var quizQuestions = [
     correctAnswer: "push()",
 }
 ]
-
-
 var dislplayedQuestion= 0;
 var choicesEl = document.getElementById('choices');
+var time = 60000;
 
 function showQuiz() {
     var shownQuestion = document.getElementById('quiz-goes-here');
     shownQuestion.setAttribute('class', 'hide');
-    questionEl.removeAttribute('class');
-   
+    questionEl.removeAttribute('class');   
     showQuestion();
   }
   
-
 function showQuestion() {
-
-    var actualQuestion = quizQuestions[dislplayedQuestion];
-  
+    var actualQuestion = quizQuestions[dislplayedQuestion];  
     var askedQuestionEl = document.getElementById('actual-question');
     askedQuestionEl.textContent = actualQuestion.question;
-
   answersEl.innerHTML = '';
-
     for (var i = 0; i < actualQuestion.answers.length; i++) {
-
         var option = actualQuestion.answers[i];
         var optionButton = document.createElement('button');
         optionButton.setAttribute('class', 'answersButton');
@@ -63,45 +52,24 @@ function showQuestion() {
         optionButton.textContent = option;    
         answersEl.appendChild(optionButton);
       }
-
     }
 
 var userisrightorwrong = document.getElementById('userisrightorwrong');
 
-
 function chosenAnswer(event) {
   var buttonEl = event.target;
-
-  //if (!buttonEl.matches(".answersButton")) {
-   //return;
- // }
   
-
   if (buttonEl.value !== quizQuestions[dislplayedQuestion].correctAnswer) {
-
     userisrightorwrong.textContent = "wrong!";
     userisrightorwrong.setAttribute('class', 'useriwrong')
   } else {
     userisrightorwrong.setAttribute('class', 'userisright');
     userisrightorwrong.textContent = "Correct!"
-
   }
-
-
-
-
   dislplayedQuestion++;
   showQuestion()
 }
 
 
-function quizEnd(
-
-
-) {}
-
-
-
 startButton.onclick = showQuiz;
-
 answersEl.onclick = chosenAnswer;
