@@ -67,8 +67,20 @@ function chosenAnswer(event) {
     userisrightorwrong.textContent = "Correct!"
   }
   dislplayedQuestion++;
-  showQuestion()
+  if (dislplayedQuestion === quizQuestions.length) {
+    quizEnd();
+  } else {
+  showQuestion();
 }
+}
+
+
+function quizEnd() {
+  var endScreenEl = document.getElementById('areyouSmart');
+  endScreenEl.removeAttribute('class');
+  questionsEl.setAttribute('class', 'hide');
+}
+
 
 
 startButton.onclick = showQuiz;
