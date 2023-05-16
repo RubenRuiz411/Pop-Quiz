@@ -45,8 +45,9 @@ function showQuiz() {
   }
   
 
- 
+var furelise = new Audio('assets/furelisemidi.mp3');
 function showQuestion() {
+  furelise.play()
     var actualQuestion = quizQuestions[dislplayedQuestion];  
     var askedQuestionEl = document.getElementById('actual-question');
     askedQuestionEl.textContent = actualQuestion.question;
@@ -63,6 +64,7 @@ function showQuestion() {
 
 var userisrightorwrong = document.getElementById('userisrightorwrong');
 
+var closingtime = new Audio('assets/closingtimemidi.mp3');
 function chosenAnswer(event) {
   var buttonEl = event.target;
   
@@ -83,6 +85,9 @@ function chosenAnswer(event) {
   if (time <= 0 || dislplayedQuestion === quizQuestions.length) {
     quit();
     showgif.setAttribute('class', 'hide');
+    questionEl.setAttribute('class', 'hide');
+    answersEl.setAttribute('class', 'hide');
+    userisrightorwrong.setAttribute('class', 'hide');
   } else {
   showQuestion();
 
@@ -98,6 +103,8 @@ function quit() {
   questionEl.setAttribute('class', 'hide');
   var score = document.getElementById('user-score');
   score.textContent = time;
+  furelise.pause();
+  closingtime.play()
   
 
 }

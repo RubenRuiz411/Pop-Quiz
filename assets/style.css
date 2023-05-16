@@ -96,3 +96,13 @@ header h1 {
     border-radius: 25px;
     background-color: #222222;
 }
+
+.rankings{
+    display:inline;
+    text-align: center;
+
+}
+
+.rankings li{
+    align-items: center;
+}
