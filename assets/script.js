@@ -33,8 +33,9 @@ var choicesEl = document.getElementById('choices');
 var time = 60;
 var clock;
 var displaytime = document.getElementById('timeDisplay')
-
+var showgif = document.getElementById('gif')
 function showQuiz() {
+  showgif.removeAttribute('class', 'hide');
     clock = setInterval(timeleft, 1000);
     displaytime.removeAttribute('class', 'hide');
     var shownQuestion = document.getElementById('quiz-goes-here');
@@ -68,10 +69,12 @@ function chosenAnswer(event) {
   if (buttonEl.value !== quizQuestions[dislplayedQuestion].correctAnswer) {
     userisrightorwrong.textContent = "wrong!";
     userisrightorwrong.setAttribute('class', 'useriwrong');
-    time -= 15;
+    time -= 10;
     if (time < 0) {
-        time = 0;}
-
+        time = 0;
+      }
+      displaytime.textContent = time;
+      checkTime();
   } else {
     userisrightorwrong.setAttribute('class', 'userisright');
     userisrightorwrong.textContent = "Correct!"    
@@ -79,6 +82,7 @@ function chosenAnswer(event) {
   dislplayedQuestion++;
   if (time <= 0 || dislplayedQuestion === quizQuestions.length) {
     quit();
+    showgif.setAttribute('class', 'hide');
   } else {
   showQuestion();
 
@@ -89,17 +93,21 @@ function chosenAnswer(event) {
 
 function quit() {
   clearInterval(clock);
-  userisrightorwrong.setAttribute('class', 'userisright');
   var endScreenEl = document.getElementById('areyouSmart');
   endScreenEl.removeAttribute('class');
   questionEl.setAttribute('class', 'hide');
   var score = document.getElementById('user-score');
-  score.textContent = displaytime;
+  score.textContent = time;
+  
+
 }
 
 function timeleft() { 
     time--;
-    displaytime.textContent = time; 
+    displaytime.textContent = time;
+  }
+
+function checkTime(){
     if (time <= 0) {
       quit();
     }
@@ -107,3 +115,25 @@ function timeleft() {
 
 startButton.onclick = showQuiz;
 answersEl.onclick = chosenAnswer;
+
+
+
+
+
+var saveScore = document.getElementById('savescore');
+var enteredName = document.getElementById('name-text');
+saveScore.onclick = saveScoretoRanking;
+function saveScoretoRanking() {
+  var playerName = enteredName.value.trim();
+  if (playerName !== '') {
+    var rankings =
+      JSON.parse(window.localStorage.getItem('scores')) || [];
+    var newRank = {
+      score: time,
+      name: playerName,
+    };
+    rankings.push(newRank);
+    window.localStorage.setItem('scores', JSON.stringify(rankings));
+    window.location.href = 'rankings.html';
+  }
+}

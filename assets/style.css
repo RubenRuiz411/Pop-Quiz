@@ -80,6 +80,13 @@ header h1 {
     font-size: 75px;
     color: #40c437;
     font-family: consolas, monospace;
+    
+}
+.timeDisplaybelow30{
+    font-size: 75px;
+    color: #c43737;
+    font-family: consolas, monospace;
+    
 }
 #timeContainer{
     display:inline;
