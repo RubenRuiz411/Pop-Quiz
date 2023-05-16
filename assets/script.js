@@ -30,15 +30,21 @@ var quizQuestions = [
 ]
 var dislplayedQuestion= 0;
 var choicesEl = document.getElementById('choices');
-var time = 60000;
+var time = 60;
+var clock;
+var displaytime = document.getElementById('timeDisplay')
 
 function showQuiz() {
+    clock = setInterval(timeleft, 1000);
+    displaytime.removeAttribute('class', 'hide');
     var shownQuestion = document.getElementById('quiz-goes-here');
     shownQuestion.setAttribute('class', 'hide');
     questionEl.removeAttribute('class');   
     showQuestion();
   }
   
+
+ 
 function showQuestion() {
     var actualQuestion = quizQuestions[dislplayedQuestion];  
     var askedQuestionEl = document.getElementById('actual-question');
@@ -61,27 +67,43 @@ function chosenAnswer(event) {
   
   if (buttonEl.value !== quizQuestions[dislplayedQuestion].correctAnswer) {
     userisrightorwrong.textContent = "wrong!";
-    userisrightorwrong.setAttribute('class', 'useriwrong')
+    userisrightorwrong.setAttribute('class', 'useriwrong');
+    time -= 15;
+    if (time < 0) {
+        time = 0;}
+
   } else {
     userisrightorwrong.setAttribute('class', 'userisright');
-    userisrightorwrong.textContent = "Correct!"
+    userisrightorwrong.textContent = "Correct!"    
   }
   dislplayedQuestion++;
-  if (dislplayedQuestion === quizQuestions.length) {
-    quizEnd();
+  if (time <= 0 || dislplayedQuestion === quizQuestions.length) {
+    quit();
   } else {
   showQuestion();
+
+
 }
 }
 
 
-function quizEnd() {
+function quit() {
+  clearInterval(clock);
+  userisrightorwrong.setAttribute('class', 'userisright');
   var endScreenEl = document.getElementById('areyouSmart');
   endScreenEl.removeAttribute('class');
-  questionsEl.setAttribute('class', 'hide');
+  questionEl.setAttribute('class', 'hide');
+  var score = document.getElementById('user-score');
+  score.textContent = displaytime;
 }
 
-
+function timeleft() { 
+    time--;
+    displaytime.textContent = time; 
+    if (time <= 0) {
+      quit();
+    }
+  }
 
 startButton.onclick = showQuiz;
 answersEl.onclick = chosenAnswer;

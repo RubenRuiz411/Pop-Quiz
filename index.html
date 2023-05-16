@@ -11,21 +11,26 @@
 
 <body>
     <header>
-        <h1>Quiz Time!</h1>
-        <nav class="rank-timer">    
+        <h1>Coding Quiz</h1>
+        <nav class="rank-timer">   
+            <img src="./assets/imgs/gifforpage1.gif" loop=infinite width= 250px > 
             <li><a href="rankings.html">Rankings</a></li>
             <div class="timer">
-                <li>Time: <span id="timeleft">0</span></li>
+                 <span id="timeleft"></span></li>
             </div>
         </nav>
     </header>
+    <div id="timeContainer"> 
+        <div id="timeDisplay" class="hide"></div>
+
+    </div>
+
+
 
     <div class="quiz">
-        <div id="quiz-goes-here" class="start-quiz">
-    
+        <div id="quiz-goes-here" class="start-quiz">    
             <p>60 seconds to answer 5 questions regarding web development. Eech question wrong will result in time taken
-                off the clock. The score will reflect on the remaining time.
-            </p>
+                off the clock. The score will reflect on the remaining time.</p>
             <button id="start" class="startbutton">Click here to Start Quiz</button>
         </div>
 <div class="quiz">
@@ -40,7 +45,8 @@
 
 <div id="areyouSmart" class="hide">
     <h2>Are you Smart?</h2>
-    <p>Score: <span id="userscore"></span>.</p>
+    <img src="./assets/imgs/gifforpage3.gif" loop=infinite width= 150px > 
+    <p>Score: <span id="user-score"></span></p>
     <p>Name: <input type="text"/>
       <button id="savescore">Save</button>
     </p>
