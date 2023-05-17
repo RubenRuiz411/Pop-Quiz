@@ -1,64 +1,59 @@
 <!DOCTYPE html>
 <html lang="en-us">
+<!-- linking stylesheet and adding title to page -->
 
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./assets/style.css">
     <title>Rubens Coding Quiz</title>
 </head>
-
-
+<!-- header text and containers with looping gif/image and link to rankings page-->
 
 <body>
     <header>
         <h1>Coding Quiz</h1>
-        <nav class="rank-timer">   
+        <nav class="rank-timer">
             <div id="gif" class="hide">
-            <img src="./assets/imgs/gifforpage1.gif" loop=infinite width= 250px > 
-        </div>
-            <li><a href="rankings.html">Rankings</a></li>
+                <img src="./assets/imgs/gifforpage1.gif" loop=infinite width=250px>
+            </div>
+            <a href="rankings.html"><button class="rankingpagebuttons">Rankings</a></button>
             <div class="timer">
-                 <span id="timeleft"></span></li>
+                <span id="timeleft"></span></li>
             </div>
         </nav>
     </header>
-    <div id="timeContainer"> 
+    <!-- container to show the time and its hidden by default-->
+    <div id="timeContainer">
         <div id="timeDisplay" class="hide"></div>
-
     </div>
-
-
-
+    <!-- container where quiz rules go and a buttun to start the quiz-->
     <div class="quiz">
-        <div id="quiz-goes-here" class="start-quiz">    
+        <div id="quiz-goes-here" class="start-quiz">
             <p>60 seconds to answer 5 questions regarding web development. Eech question wrong will result in time taken
                 off the clock. The score will reflect on the remaining time.</p>
             <button id="start" class="startbutton">Click here to Start Quiz</button>
         </div>
-<div class="quiz">
-    <h2 id="actual-question"></h2>
-    <div id="answers" class="answers">
-    </div>
-
-
-<div class="quiz">
-<div id="userisrightorwrong" class="userisrightorwrong hide"></div>
-</div>
-
-<div id="areyouSmart" class="hide">
-    <h2>Are you Smart?</h2>
-    <img src="./assets/imgs/gifforpage3.gif" loop=infinite width= 150px > 
-    <p>Score: <span id="user-score"></span></p>
-    <p>Name: <input type="text" id="name-text" />
-      <button id="savescore">Save</button>
-    </p>
-  </div>
+        <!-- container where the quiz will eventually go once created with JS function-->
+        <div class="quiz">
+            <h2 id="actual-question"></h2>
+            <div id="answers" class="answers">
+            </div>
+            <!-- container where the quiz feedback popup will go and its hidden by default-->
+            <div class="quiz">
+                <div id="userisrightorwrong" class="userisrightorwrong hide"></div>
+            </div>
+            <!-- looping image and user score but hidden by default-->
+            <div id="areyouSmart" class="hide">
+                <h2>Are you Smart?</h2>
+                <img src="./assets/imgs/gifforpage3.gif" loop=infinite width=150px>
+                <p>Score: <span id="user-score"></span></p>
+                <p>Name: <input type="text" id="name-text" />
+                    <button id="savescore">Save</button>
+                </p>
+            </div>
 </body>
-
-
+<!-- link to javascript file for this page -->
 <script src="./assets/script.js"></script>
 </body>
-
-
 
 </html>

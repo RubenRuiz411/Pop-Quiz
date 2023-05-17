@@ -1,11 +1,12 @@
+/* background of whole page */
 body {
     background-color: #000000;
 }
-
+/* root psuedo-class for font option */
 :root {
     --base-font: 'American Typewriter','American Typewriter 300', serif;
 }
-
+/* header alignment/font/color options */
 header {
     padding: 10px;
     font-family: var(--base-font);
@@ -13,15 +14,13 @@ header {
     color: #ffffff;
     text-align: center;
 }
-
-
+/* header h1 text preference, font size*/
 header h1 {
     display: inline-block;
     font-size: 48px;
     align-items: center;
 }
-
-
+/* quiz area preferences */
 .quiz {
     color:white ;
     font-family:var(--base-font);
@@ -30,19 +29,20 @@ header h1 {
     display: block;
     font-size: 15px;
 }
-
+/* displayed quiz question alignment settings */
 .actual-quiz {
     align-items: center;
     display:block;
 }
-
+/* font color for popup font when correct answer is selected */
 .userisright {
     color: greenyellow;
 }
-
+/* font color for popup font when wrong answer is selected */
 .useriwrong {
     color: rgb(255, 47, 47);
 }
+/* settings for answer buttons */
 .answersButton{
     background-color: #4c86af; 
     border: none;
@@ -52,10 +52,12 @@ header h1 {
     font-size: 20px;
     font-family: var(--base-font);
 }
+/* settings for answer buttons when mouse hovers */
 .answersButton:hover{
     color:rgb(255, 255, 255);
     background-color:#183480;
 }
+/* settings for answer buttons for quiz start button */
 .startbutton{
     background-color: #4c86af; 
     border: none;
@@ -65,29 +67,22 @@ header h1 {
     font-size: 20px;
     font-family: var(--base-font);
 }
+/* settings for answer buttons for quiz start button when mouse hovers */
 .startbutton:hover{
     color:rgb(255, 255, 255);
     background-color:#183480;
 }
-
+/* class to hide different dom elements */
 .hide {
     display: none;
   }
-  
-
-
+/* settings for how the coundown font is displayed */
 #timeDisplay{
     font-size: 75px;
     color: #40c437;
-    font-family: consolas, monospace;
-    
+    font-family: consolas, monospace;   
 }
-.timeDisplaybelow30{
-    font-size: 75px;
-    color: #c43737;
-    font-family: consolas, monospace;
-    
-}
+/* settings for where the countdown is displayed on page */
 #timeContainer{
     display:inline;
     text-align: center;
@@ -96,13 +91,26 @@ header h1 {
     border-radius: 25px;
     background-color: #222222;
 }
-
+/* settings for how the score rankings are displayed*/
 .rankings{
-    display:inline;
     text-align: center;
-
+    list-style-position: inside;
+    
 }
-
-.rankings li{
-    align-items: center;
+/* settings for how the ranking page buttons are displayed */
+.rankingpagebuttons{
+    background-color: #4c86af; 
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 20px 20px;
+    text-align: center;
+    font-size: 20px;
+    font-family: var(--base-font);
+    display:inline;
+}
+/* settings for how the ranking page buttons are displayed when hovered */
+.rankingpagebuttons:hover{
+    color:rgb(255, 255, 255);
+    background-color:#183480;
+    display:inline;
 }

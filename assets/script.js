@@ -1,6 +1,7 @@
-var answersEl = document.getElementById('answers');
-var startButton = document.getElementById('start');
-var questionEl = document.getElementById('actual-question');
+var answersEl = document.getElementById('answers'); // dom selector for possible answers 
+var startButton = document.getElementById('start'); // dom selector for startquiz button
+var questionEl = document.getElementById('actual-question'); // dom selector for possible question 
+// var of objects with all possible questions answers and the correct answers 
 var quizQuestions = [
 {
     question: "In CSS, which property is used to change the background color of an element?",
@@ -28,12 +29,14 @@ var quizQuestions = [
     correctAnswer: "push()",
 }
 ]
-var dislplayedQuestion= 0;
-var choicesEl = document.getElementById('choices');
-var time = 60;
-var clock;
-var displaytime = document.getElementById('timeDisplay')
-var showgif = document.getElementById('gif')
+
+var dislplayedQuestion= 0; // var placeholder to keep track of which question we are showing the user
+var choicesEl = document.getElementById('choices'); // dom selector for possible answers
+var time = 60; // time
+var clock; // time counting down
+var displaytime = document.getElementById('timeDisplay')// dom selector to place the time on the html
+var showgif = document.getElementById('gif') // dom selector to display looping image on page
+// function to show the questions and possible answers then run the quiz function
 function showQuiz() {
   showgif.removeAttribute('class', 'hide');
     clock = setInterval(timeleft, 1000);
@@ -43,9 +46,9 @@ function showQuiz() {
     questionEl.removeAttribute('class');   
     showQuestion();
   }
-  
 
-var furelise = new Audio('assets/furelisemidi.mp3');
+var furelise = new Audio('assets/furelisemidi.mp3'); // var that is pointing to mp3 in assets folder
+// function will start the music then run a loop to display question/answer object properties contained in quizQuestions variable 
 function showQuestion() {
   furelise.play()
     var actualQuestion = quizQuestions[dislplayedQuestion];  
@@ -62,12 +65,11 @@ function showQuestion() {
       }
     }
 
-var userisrightorwrong = document.getElementById('userisrightorwrong');
-
-var closingtime = new Audio('assets/closingtimemidi.mp3');
+var userisrightorwrong = document.getElementById('userisrightorwrong'); // dom selector for popup telling user if they are right/wrong
+var closingtime = new Audio('assets/closingtimemidi.mp3'); // var pointing to mp3 in assets folder
+// function to run when the answer is selected with if/else statements and to figure out if the user is right or wrong and possible penalty
 function chosenAnswer(event) {
-  var buttonEl = event.target;
-  
+  var buttonEl = event.target;  
   if (buttonEl.value !== quizQuestions[dislplayedQuestion].correctAnswer) {
     userisrightorwrong.textContent = "wrong!";
     userisrightorwrong.setAttribute('class', 'useriwrong');
@@ -90,12 +92,9 @@ function chosenAnswer(event) {
     userisrightorwrong.setAttribute('class', 'hide');
   } else {
   showQuestion();
-
-
 }
 }
-
-
+// function for when the quiz ends either by running out of questions or the time running out / below -0
 function quit() {
   clearInterval(clock);
   var endScreenEl = document.getElementById('areyouSmart');
@@ -104,24 +103,27 @@ function quit() {
   var score = document.getElementById('user-score');
   score.textContent = time;
   furelise.pause();
-  closingtime.play()
-  
-
+  closingtime.play() 
 }
-
+// function to find out how much time is left and to update the time
 function timeleft() { 
     time--;
+    checkTime();    
     displaytime.textContent = time;
   }
-
+// function to check time and hide elements if the time is below -0
 function checkTime(){
     if (time <= 0) {
+      showgif.setAttribute('class', 'hide');
+      questionEl.setAttribute('class', 'hide');
+      answersEl.setAttribute('class', 'hide');
+      userisrightorwrong.setAttribute('class', 'hide');
       quit();
     }
   }
 
-startButton.onclick = showQuiz;
-answersEl.onclick = chosenAnswer;
+startButton.onclick = showQuiz; // listener to run function when the start quiz button is clicked 
+answersEl.onclick = chosenAnswer; // listener to run function when an answer button is clicked 
 
 
 

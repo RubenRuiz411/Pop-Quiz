@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
+<!-- head linking the style sheet plug title of page-->
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./assets/style.css">
     <title>Rubens Coding Quiz Rankings</title>
 </head>
-
-
-
+<!-- containers with html elements and containers with looping image-->
 <body>
     <header>
         <h1>
             <div class="rankings">
+            Rankings!
+        </h1>
+        <ul><img src="./assets/imgs/goodbye.gif" loop=infinite width= 250px></ul>
 
-            Rankings!</h1>
-            <ul></ul>
-            <li><a href="index.html">Quiz</a></li>
-            <ol id="scores" class ="rankings li"></ol>
-        </div>
-        
+            
+            <ol id="scores" class ="rankings"> </ol>
+            <a href="index.html"><button class ="rankingpagebuttons">Quiz</a></button>
+            <button id="clearrank" class ="rankingpagebuttons">Clear Scores</button>
+        </div>        
     </header>
-
-
-
-
-
-
-    <script src="./assets/rankingsscript.js"></script>
+<!-- link to javascript specificaly for this page -->
+<script src="./assets/rankingsscript.js"></script>
 </body>
-
-
-
 </html>
