@@ -23,7 +23,7 @@ Using For Loops to create HTML Elements and modify the DOM, also learned how to 
 
 ## Installation
 
-// pending//
+https://rubenruiz411.github.io/Pop-Quiz/
 
 ## Usage
 
